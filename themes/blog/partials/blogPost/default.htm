@@ -1,0 +1,16 @@
+{% set post = blogPost.post %}
+<div class="col-md-8 single-main">
+    <div class="single-grid">
+        {% if post.featured_images.count %}
+
+            {% for image in post.featured_images %}
+                <img src="{{ image.path }}" alt="" />
+            {% endfor %}
+
+        {% endif %}
+        
+        <p>{{ post.content_html|raw }}</p>
+
+        {% component 'forumEmbedTopic' %}
+    </div>
+</div>

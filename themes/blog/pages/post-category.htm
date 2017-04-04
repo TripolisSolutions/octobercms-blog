@@ -1,0 +1,38 @@
+title = "Post by category"
+url = "/category/:slug"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "about"
+postPage = "about"
+
+[blogPosts recentPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "post-category"
+postPage = "post"
+==
+<div class="content">
+	 <div class="container">
+		 <div class="content-grids">
+			 <div class="col-md-8 content-main">
+				 <div class="content-grid">
+					 {% component 'blogPosts' %}	
+				 </div>
+			  </div>
+			  <div class="col-md-4 content-right">
+				  {% component 'recentPosts' %}	
+				  {% partial '/rightsidebar' %}
+			  </div>
+			  <div class="clearfix"></div>
+		  </div>
+	  </div>
+</div>

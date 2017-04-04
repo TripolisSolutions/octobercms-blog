@@ -1,0 +1,32 @@
+title = "Post"
+url = "/:slug"
+layout = "default"
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "post-category"
+
+[blogPosts recentPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "post-category"
+postPage = "post"
+
+[forumEmbedTopic]
+embedCode = "{{ :slug }}"
+channelSlug = "comment"
+memberPage = "about"
+==
+<div class="single">
+	<div class="container">
+		{% component 'blogPost' %}
+		<div class="col-md-4 side-content">
+			{% component 'recentPosts' %}	
+			{% partial '/rightsidebar' %}
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
